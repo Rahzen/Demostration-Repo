@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="description" content="Lezione 17: Materialize Icons">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="author" content="Giorgio Colombini">
+	<title>Contact page</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<a href="index.html"><li>Home</li></a>
+				<a href="about.html"><li>About</li></a>
+				<a href="contact.html"><li>Contact</li></a>
+				<a href="contact2.html"><li>Contact2</li></a>
+			</ul>
+		</nav>
+	</header>
+	
+	<h1>Contact me!</h1>
+	
+	<form>
+		<input type="text" name="name" placeholder="Full Name" required>
+		<input type="email" name="email" placeholder="Email Address" required>
+		<input type="tel" name="phone_num" placeholder="(555)444-5000" pattern="[\([\d{3}[\)]\d{3}[\-]\d{4}" required> <!-- [\(] serve per mettere la parentesi, \d{3} serve per mettere 3 digit -->
+		<textarea name="message" placeholder="Your Message"></textarea>
+		<button type="submit">Submit</button>
+	</form>
+	
+	</body>
+</html>

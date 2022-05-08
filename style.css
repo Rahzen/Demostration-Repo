@@ -1,0 +1,252 @@
+h1  {
+	color: red;
+	text-align: center;
+	text-shadow: 4px 4px 2px rgb(71, 10, 10);
+}
+
+.title {
+	color: rgb(20,99,26);
+}
+
+#italic {
+	color: orange;
+}
+
+nav {
+	background: aquamarine; /* si può anche scrivere background-color */
+	text-align: center;
+}
+
+a { /* toglie la sottolineatura ai link */
+	text-decoration: none; /* si può scrivere anche text-decoration-line */
+}
+
+nav ul { /* targetta solo la ul dentro alla tag nav */
+	list-style: none; /* toglie lo stile di lista */
+}
+
+nav li {
+	display: inline-block;
+	padding: 30px;
+	/* border: 2px solid black; */
+}
+
+/* .nav-wrapper {
+	background: blue;
+} per targettare solo il colore della barra nav */
+
+.container {
+	border: 10px dashed teal;
+	/* margin: 50px; 50 pixel su tutti i lati */
+	/* margin-top: 50px; 50 pixel solo da sopra */
+	/* margin: 50px 10px; 50 pixel sopra e sotto, 10 pixel a destra e sinistra */
+	margin: 50px 5px 25px 0px; /* top right bottom left */
+	padding: 30px 0px 10px 35px; /* come per il margine */
+}
+
+.box {
+	/* display: block; è il display di default */
+	/* display: inline; ignora le proprietà di dimensione. La box è grande esattamente come il testo */
+	/* display: inline-block; */
+	height: 200px;
+	width: 200px;
+	background: blue;
+	margin: 10px;
+	/* box-shadow: 18px 8px 10px 10px grey inset; inset gira l'ombra all'interno della box */
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, [col] 20%) ; /* five columns of the specified width */
+    grid-template-rows: repeat(3, [row] auto  ); /* "auto" si adatta al numero di righe */
+    background-color: #fff;
+    color: #444;
+  }
+  
+.box2 {
+    background-color: #fff;
+    color: #fff; /* white */
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    z-index:10; /* usato per sovrapporre gli elementi, vedi .f sotto */
+}
+
+.a {
+    grid-column: col / span 2; /* parte dalla colonna 1 e si estende per la larghezza di due colonne */
+    grid-row: row; /* se non definito è sulla prima riga */
+	display: flex;
+	justify-content: center;
+}
+.b {
+	grid-column: col 4 / span 2;
+	grid-row: row;
+	display: flex;
+	justify-content: center;
+}
+.c {
+	grid-column: col / span 5;
+	grid-row: row 2;
+	display: flex;
+	justify-content: center;
+	background-image: linear-gradient(pink, yellow, purple, orange);
+}
+.d {
+	grid-column: col / span 2 ;
+	grid-row: row 3;
+	display: flex;
+	justify-content: center;
+}
+
+.e {
+	grid-column: col 4 / span 2;
+	grid-row: row 3;
+	display: flex;
+	justify-content: center;
+}
+
+.f {
+	grid-column: col 2 / span 3;
+	grid-row: row 2;
+	background-color: rgba(49,121,207, 0.5); /* 0.5 è l'opacità */
+	z-index: 20; /* il valore è maggiore di quello nella classe .box2 quindi .f sarà sopra a .box2 */
+	display: flex;
+	justify-content: center;
+	background-image: linear-gradient(orange, purple, yellow, pink);
+}
+
+@keyframes fadeMe {
+	0% {opacity: 0;}
+	50% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+#box1 {
+	animation-name: fadeMe;
+	animation-duration: 4s;
+	animation-iteration-count: infinite; /* altre opzioni sono inherit, initial, unset */
+	animation-timing-function: linear; /* la velocità di animazione è uguale dall'inizio alla fine */
+}
+
+@keyframes rotateMe {
+	0% {transform: rotate(90deg);}
+	50% {transform: rotate(180deg);}
+	100% {transform: rotate(360deg);}
+}
+
+#box2 {
+	animation-name: rotateMe;
+	animation-duration: 5s;
+	animation-iteration-count: 4;
+	animation-timing-function: ease-in-out; /* rallenta all'inizio e alla fine */
+	border-radius: 10%;
+	background-image: radial-gradient(circle/*oppure linear*/, purple, orange, yellow, pink, purple);
+}
+
+@keyframes getBigger {
+	0% {transform: scale(1);} /* 1 è la dimensione base */
+	50% {transform: scale(2);}
+	100% {transform: scale(.5);}
+}
+
+#box3 {
+	animation: getBigger 6s 8 ease-in; /* modo più conciso per scrivere tutte le righe fatte sopra */
+	border-radius: 50%;
+	background: orange;
+}
+
+@keyframes changeColors {
+	0% {background-color: grey;}
+	25% {background-color: purple;}
+	50% {background-color: yellow;}
+	75% {background-color: pink;}
+	100% {background-color: grey;}
+}
+
+#box4 {
+	animation: changeColors 3s 2 forwards; /* forwards lascia l'ultimo colore invece che tornare al blu di default a fine animazione */
+}
+
+@keyframes moveBox { /* vedi position: relative nel #box5 sotto */
+	0% {left: 0px; top: 0px;} /* sostanzialmente dov'è in questo momento */
+	25% {left: 100px; top: 0px;} /* si muove a destra di 100px */
+	50% {left: 100px; top: 200px;} /* si muove verso il basso di 200px */
+	75% {left: 0px; top: 200px;} /* torna a sinistra di 100px */
+	100% {left: 0px; top: 0px;} /* torna al punto di partenza */
+}
+
+#box5 {
+	position: relative; /* i movimenti sono lo scostamento in pixel dal punto di partenza dell'oggetto */
+	animation: moveBox 5s 3;
+	background: red;
+}
+
+#box6 {
+	top: 10px;
+	left: 20px;
+	/* position: absolute; posizione assoluta rispetto alla pagina */
+	position: relative; /* posizione relativa alla posizione iniziale */
+	/* position: fixed; posizione fissa indipendentemente dallo scrolling della pagina */
+}
+
+/* html { /* si può usare anche body al posto di html */
+	/* background-image: url(../../Immagini/black_dragon.jpg);
+	background-repeat: no-repeat;
+	background-size: cover; */
+	/* background-image: linear-gradient(to right, blue, green, purple); to bottom e to left per girare al direzione del gradiente. to bottom è il default */
+	/* background-image: radial-gradient(blue, green, purple);
+} */
+	
+
+.circle-img {
+	border-radius: 50%; /* la % influisce sulla raggiatura in base al lato, meno di 50% fa un rettangolo ma arrotondato sugli spigoli. Sopra 50% non fa differenza. Per questo se l'immagine non è circolare il risultato non sarà un cerchio */
+}
+
+img {
+	box-shadow: 18px 8px 10px 8px grey; /* horizontal | vertical | blur | spread_radius; valori negativi per orizzontale e verticale vanno nel senso opposto */
+}
+
+.flex { /* flexboxfroggy.com per imparare un po' di comandi per flexbox */
+	margin: 30px;
+	border: 3px solid black;
+	display: flex; /* senza questo comando tutti i blocchi stanno in verticale. Se si mette display: inline-block sul .box tornano orizzontali ma non si possono centrare */
+	flex-wrap: wrap; /* senza questo comando le box si schiacciano per starci tutte nella dimensione orizzontale della finestra e non vanno a capo */
+	justify-content: space-around; /* flex-start fa cominciare le box da sinistra e wrappa quando finisce lo spazio. Flex-end fa lo stesso ma da destra. space-between allarga le box fino a che non c'è spazio per metterne un'altra | align-items allinea verticalmente */
+	flex-direction: row-reverse; /* inverte gli elementi nella riga. column-reverse li mette in colonna e li inverte */
+	padding: 100px;
+}
+
+.contact-box {
+	display: flex;
+	justify-content: center;
+}
+
+.row {
+	margin: 20px;
+}
+
+.input-field {
+	margin: 20px;
+}
+
+/* form input {
+	display: block;
+	margin: 30px;
+
+}
+
+form textarea {
+	display: block;
+	margin: 30px;
+}
+
+form button {
+	display: block;
+	margin: 30px; 
+} */
+
+form input, textarea, button { /* unisce i tre stili sopra */
+	display: block;
+	margin: 30px;
+}
